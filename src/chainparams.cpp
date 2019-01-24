@@ -114,8 +114,8 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 90; // Ethf: 1.5 minutes
-		nTargetSpacing = 1 * 90; // Ethf: 1.5min
-        nLastPOWBlock = 61440; // 57600 crash. set 1 day restart POW, 3 day normal POW, then POS total ~3840
+		    nTargetSpacing = 1 * 90; // Ethf: 1.5min
+        nLastPOWBlock = 345600; // 57600 crash. set 1 day restart POW, 3 day normal POW, then POS total ~3840
         nMaturity = 66; // 99 Minutes
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
@@ -144,20 +144,20 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1518611400;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();;
-        genesis.nNonce = 0x28fb40; 
+        genesis.nNonce = 0x28fb40;
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x000006d773ad0eec0566aba0fe359ff5bd03289a73d666104bb97775a6f20194"));
         assert(genesis.hashMerkleRoot == uint256("0x557d44e68f4dee3ca3eb9cd65d82bda1fd75ff09551efa81824d136051f4479b"));
 
-		vSeeds.push_back(CDNSSeedData("ethereumfuture.net", "dnsseed.ethereumfuture.net"));
+		vSeeds.push_back(CDNSSeedData("198.13.39.129", "198.13.39.129"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 95); // f
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19); 
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 214);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2A)(0x22)(0x31).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x20)(0x32)(0x2A).convert_to_container<std::vector<unsigned char> >();
-        //  BIP44 coin type 
+        //  BIP44 coin type
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x14)(0x00)(0x00)(0x80).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
@@ -168,14 +168,14 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-        fSkipProofOfWorkCheck = false; 
+        fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
         strSporkKey = "04bfe20ede9eec80460f064764896c47207f7cbd742449b3f447b84dd1106bb64060c618bbf49ce8931ce4b16435ad41c3d594d69c716ebbd07116340593f0721c";
         strObfuscationPoolDummyAddress = "fU2hQKFvqrTY5LDxAmo43aii9mHSaz2TPa";
-        nStartMasternodePayments = 1518620400; 
+        nStartMasternodePayments = 1518620400;
 	}
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -229,11 +229,11 @@ public:
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 35); // Testnet ethf addresses start with 'F'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 14);  // Testnet ethf script addresses start with '6' or '7'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        // Testnet ethf BIP32 pubkeys start 
+        // Testnet ethf BIP32 pubkeys start
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa1).convert_to_container<std::vector<unsigned char> >();
-        // Testnet ethf BIP32 prvkeys start 
+        // Testnet ethf BIP32 prvkeys start
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x38).convert_to_container<std::vector<unsigned char> >();
-        // Testnet ethf BIP44 coin type 
+        // Testnet ethf BIP44 coin type
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x05)(0x00)(0x00)(0x80).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
@@ -249,7 +249,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "049fe7381f73b375c50d494015f1ac98e659609b79bb11dd537e7ca802102c3e353615361bc5eba4e4f340fb3f9ec9a7ce6ae90a12a9503a6caff52930dabf359e";
         strObfuscationPoolDummyAddress = "FU2hQKFvqrTY5LDxAmo43aii9mHSaz2TPa";
-        nStartMasternodePayments = 1518620401; 
+        nStartMasternodePayments = 1518620401;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
